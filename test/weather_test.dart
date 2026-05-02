@@ -69,7 +69,6 @@ void main() {
 
     test('Wind direction calculation', () {
       final weather = WeatherModel.fromJson(sampleWeatherJson);
-      // deg = 90 should be East
       expect(weather.getWindDirection(), 'E');
     });
 

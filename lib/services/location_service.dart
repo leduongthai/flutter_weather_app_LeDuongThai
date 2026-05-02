@@ -3,7 +3,6 @@ import 'package:geocoding/geocoding.dart';
 import '../models/location_model.dart';
 
 class LocationService {
-  // Check and request location permission
   Future<bool> checkPermission() async {
     bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) {
@@ -25,7 +24,6 @@ class LocationService {
     return true;
   }
 
-  // Get current position
   Future<Position> getCurrentLocation() async {
     bool hasPermission = await checkPermission();
 
@@ -41,7 +39,6 @@ class LocationService {
     );
   }
 
-  // Get city name from coordinates
   Future<String> getCityName(double lat, double lon) async {
     try {
       List<Placemark> placemarks =
@@ -57,7 +54,6 @@ class LocationService {
     }
   }
 
-  // Get full location model from coordinates
   Future<LocationModel> getLocationFromCoordinates(
       double lat, double lon) async {
     try {

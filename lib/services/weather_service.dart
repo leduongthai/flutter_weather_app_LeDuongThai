@@ -9,7 +9,6 @@ class WeatherService {
 
   WeatherService({http.Client? client}) : _client = client ?? http.Client();
 
-  // Get current weather by city name
   Future<WeatherModel> getCurrentWeatherByCity(String cityName) async {
     try {
       final url = ApiConfig.buildUrl(
@@ -38,7 +37,6 @@ class WeatherService {
     }
   }
 
-  // Get current weather by coordinates
   Future<WeatherModel> getCurrentWeatherByCoordinates(
     double lat,
     double lon,
@@ -64,7 +62,6 @@ class WeatherService {
     }
   }
 
-  // Get 5-day forecast
   Future<List<ForecastModel>> getForecast(String cityName) async {
     try {
       final url = ApiConfig.buildUrl(
@@ -91,7 +88,6 @@ class WeatherService {
     }
   }
 
-  // Get forecast by coordinates
   Future<List<ForecastModel>> getForecastByCoordinates(
     double lat,
     double lon,

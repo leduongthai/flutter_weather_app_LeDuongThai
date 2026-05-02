@@ -11,7 +11,6 @@ class StorageService {
   static const String _windUnitKey = 'wind_unit';
   static const String _timeFormatKey = 'time_format';
 
-  // ─── Weather Cache ───────────────────────────────────────────────────────
 
   Future<void> saveWeatherData(WeatherModel weather) async {
     final prefs = await SharedPreferences.getInstance();
@@ -39,7 +38,7 @@ class StorageService {
     if (lastUpdate == null) return false;
     final difference =
         DateTime.now().millisecondsSinceEpoch - lastUpdate;
-    return difference < 30 * 60 * 1000; // 30 minutes
+    return difference < 30 * 60 * 1000; // 30 p
   }
 
   Future<DateTime?> getLastUpdateTime() async {
@@ -49,7 +48,6 @@ class StorageService {
     return DateTime.fromMillisecondsSinceEpoch(lastUpdate);
   }
 
-  // ─── Favorite Cities ─────────────────────────────────────────────────────
 
   Future<void> saveFavoriteCities(List<String> cities) async {
     final prefs = await SharedPreferences.getInstance();
@@ -81,7 +79,6 @@ class StorageService {
     return cities.contains(city);
   }
 
-  // ─── Recent Searches ─────────────────────────────────────────────────────
 
   Future<void> addRecentSearch(String city) async {
     final searches = await getRecentSearches();
@@ -102,7 +99,6 @@ class StorageService {
     await prefs.remove(_recentSearchesKey);
   }
 
-  // ─── Settings ────────────────────────────────────────────────────────────
 
   Future<void> saveTemperatureUnit(String unit) async {
     final prefs = await SharedPreferences.getInstance();

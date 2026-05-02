@@ -23,7 +23,6 @@ class WeatherProvider extends ChangeNotifier {
   List<String> _favoriteCities = [];
   List<String> _recentSearches = [];
 
-  // Settings
   String _tempUnit = 'Celsius';
   String _windUnit = 'm/s';
   String _timeFormat = '12h';
@@ -39,7 +38,6 @@ class WeatherProvider extends ChangeNotifier {
     _loadRecentSearches();
   }
 
-  // ─── Getters ──────────────────────────────────────────────────────────────
   WeatherModel? get currentWeather => _currentWeather;
   List<ForecastModel> get forecast => _forecast;
   WeatherState get state => _state;
@@ -52,7 +50,6 @@ class WeatherProvider extends ChangeNotifier {
   String get windUnit => _windUnit;
   String get timeFormat => _timeFormat;
 
-  // ─── Fetch Weather ────────────────────────────────────────────────────────
 
   Future<void> fetchWeatherByCity(String cityName) async {
     _state = WeatherState.loading;
@@ -137,7 +134,6 @@ class WeatherProvider extends ChangeNotifier {
     }
   }
 
-  // ─── Favorites ────────────────────────────────────────────────────────────
 
   Future<void> _loadFavorites() async {
     _favoriteCities = await _storageService.getFavoriteCities();
@@ -161,7 +157,6 @@ class WeatherProvider extends ChangeNotifier {
 
   bool isFavorite(String city) => _favoriteCities.contains(city);
 
-  // ─── Recent Searches ──────────────────────────────────────────────────────
 
   Future<void> _loadRecentSearches() async {
     _recentSearches = await _storageService.getRecentSearches();
@@ -174,7 +169,6 @@ class WeatherProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ─── Settings ─────────────────────────────────────────────────────────────
 
   Future<void> _loadSettings() async {
     _tempUnit = await _storageService.getTemperatureUnit();
@@ -201,7 +195,6 @@ class WeatherProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // ─── Forecast helpers ─────────────────────────────────────────────────────
 
   List<ForecastModel> get hourlyForecast {
     final now = DateTime.now();

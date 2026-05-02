@@ -95,7 +95,6 @@ class WeatherModel {
     };
   }
 
-  // Convert temperature based on unit setting
   double getTemperature(String unit) {
     if (unit == 'Fahrenheit') {
       return temperature * 9 / 5 + 32;

@@ -8,7 +8,7 @@ class ForecastModel {
   final int humidity;
   final double windSpeed;
   final String mainCondition;
-  final int? pop; // probability of precipitation (0-100)
+  final int? pop;
 
   ForecastModel({
     required this.dateTime,
