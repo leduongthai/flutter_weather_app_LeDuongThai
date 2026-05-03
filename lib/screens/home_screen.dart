@@ -33,7 +33,6 @@ class _HomeScreenState extends State<HomeScreen> {
     final provider = context.watch<WeatherProvider>();
     final weather = provider.currentWeather;
 
-    // Background gradient
     final gradient = weather != null
         ? AppConstants.getGradient(weather.mainCondition,
             isNight: weather.isNight)

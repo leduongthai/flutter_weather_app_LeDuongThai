@@ -29,7 +29,6 @@ class CurrentWeatherCard extends StatelessWidget {
       decoration: BoxDecoration(gradient: gradient),
       child: Column(
         children: [
-          // City row with favorite button
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -61,7 +60,6 @@ class CurrentWeatherCard extends StatelessWidget {
             style: const TextStyle(fontSize: 16, color: Colors.white70),
           ),
           const SizedBox(height: 16),
-          // Weather icon
           CachedNetworkImage(
             imageUrl: ApiConfig.iconUrlLarge(weather.icon),
             height: 100,
@@ -76,7 +74,6 @@ class CurrentWeatherCard extends StatelessWidget {
               style: const TextStyle(fontSize: 80),
             ),
           ),
-          // Temperature
           Text(
             '${weather.getTemperature(tempUnit).round()}°${tempUnit == 'Celsius' ? 'C' : 'F'}',
             style: const TextStyle(
@@ -107,7 +104,6 @@ class CurrentWeatherCard extends StatelessWidget {
             ),
           ],
           const SizedBox(height: 20),
-          // Quick stats row
           _buildQuickStats(provider),
         ],
       ),

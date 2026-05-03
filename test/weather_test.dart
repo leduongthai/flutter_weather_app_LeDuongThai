@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:weather_app/models/weather_model.dart';
 import 'package:weather_app/models/forecast_model.dart';
 
-// Sample weather JSON for testing
 final sampleWeatherJson = {
   'name': 'Ho Chi Minh City',
   'sys': {'country': 'VN', 'sunrise': 1700000000, 'sunset': 1700043600},

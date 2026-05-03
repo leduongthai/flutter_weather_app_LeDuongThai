@@ -49,14 +49,13 @@ class _SearchScreenState extends State<SearchScreen> {
           onPressed: () => Navigator.pop(context),
         ),
         title: const Text(
-          'Search City',
+          'tìm city',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
       ),
       body: Column(
         children: [
           const SizedBox(height: 100),
-          // Search bar
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
@@ -70,7 +69,7 @@ class _SearchScreenState extends State<SearchScreen> {
                 focusNode: _focusNode,
                 style: const TextStyle(color: Colors.white, fontSize: 18),
                 decoration: InputDecoration(
-                  hintText: 'Enter city name...',
+                  hintText: 'Nhập tên thành phố...',
                   hintStyle: const TextStyle(color: Colors.white38),
                   border: InputBorder.none,
                   contentPadding: const EdgeInsets.symmetric(
@@ -92,9 +91,8 @@ class _SearchScreenState extends State<SearchScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Favorite Cities
                   if (provider.favoriteCities.isNotEmpty) ...[
-                    _sectionHeader('⭐ Favorite Cities'),
+                    _sectionHeader('Favorite Cities'),
                     const SizedBox(height: 8),
                     ...provider.favoriteCities.map((city) => _CityTile(
                           city: city,
@@ -108,13 +106,12 @@ class _SearchScreenState extends State<SearchScreen> {
                         )),
                     const SizedBox(height: 20),
                   ],
-                  // Recent Searches
                   if (provider.recentSearches.isNotEmpty) ...[
                     Row(
                       mainAxisAlignment:
                           MainAxisAlignment.spaceBetween,
                       children: [
-                        _sectionHeader('🕐 Recent Searches'),
+                        _sectionHeader('Recent Searches'),
                         TextButton(
                           onPressed: () =>
                               provider.clearRecentSearches(),
@@ -137,8 +134,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                     const SizedBox(height: 20),
                   ],
-                  // Suggested cities
-                  _sectionHeader('🌏 Popular Cities'),
+                  _sectionHeader('Popular Cities'),
                   const SizedBox(height: 8),
                   Wrap(
                     spacing: 8,

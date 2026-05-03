@@ -1,26 +1,20 @@
 import 'package:flutter/material.dart';
 
 class AppConstants {
-  // Temperature units
   static const String celsius = 'Celsius';
   static const String fahrenheit = 'Fahrenheit';
 
-  // Wind speed units
   static const String kmh = 'km/h';
   static const String ms = 'm/s';
   static const String mph = 'mph';
 
-  // Time formats
   static const String format12h = '12h';
   static const String format24h = '24h';
 
-  // Cache
   static const int cacheValidMinutes = 30;
 
-  // Favorite cities limit
   static const int maxFavoriteCities = 5;
 
-  // Weather condition gradients
   static LinearGradient getGradient(String condition, {bool isNight = false}) {
     if (isNight) {
       return const LinearGradient(
@@ -78,7 +72,6 @@ class AppConstants {
     }
   }
 
-  // Weather emoji icons
   static String getWeatherEmoji(String condition) {
     switch (condition.toLowerCase()) {
       case 'clear':
